@@ -84,4 +84,11 @@ public class MainActivity extends AppCompatActivity implements CarListContract.V
     public void fetchNewData() {
         mPresenter.fetchNewCars();
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mPresenter.onViewDestroyed();
+        mPresenter = null;
+    }
 }
